@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/47068b172e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <main class="game-container">
+      <header class="logo">
+        <img src="./images/logo.png" class="logo__img" alt="" />
+      </header>
+      <div class="table">
+        <div class="player">
+          <h2 class="player__heading">Player cards</h2>
+          <p class="player__score">Score: 0</p>
+          <div class="player__cards player__cards--left"></div>
+        </div>
+
+        <div class="player player--right">
+          <h2 class="player__heading">Dealer cards</h2>
+          <p class="player__score">Score: 0</p>
+          <img src="./images/card.webp" alt="" class="back-of-card" />
+          <div class="player__cards player__cards--right"></div>
+        </div>
+      </div>
+
+      <div class="player-info">
+        <p class="player-info__cash">Cash: $10000</p>
+        <p class="player-info__bet">Bet: $0</p>
+      </div>
+
+      <!-- <a href="https://www.flaticon.com/" -->
+      <div class="chips">
+        <div class="chip-btn">
+          <img class="chip-icon" src="./images/money-1.png" alt="$1 icon" />
+          $1
+        </div>
+        <div class="chip-btn">
+          <img class="chip-icon" src="./images/money-2.png" alt="$5 icon" />
+          $5
+        </div>
+        <div class="chip-btn">
+          <img class="chip-icon" src="./images/money-3.png" alt="$10 icon" />
+          $10
+        </div>
+        <div class="chip-btn">
+          <img class="chip-icon" src="./images/money-4.png" alt="$25 icon" />
+          $25
+        </div>
+        <div class="chip-btn">
+          <img class="chip-icon" src="./images/money-5.png" alt="$50 icon" />
+          $50
+        </div>
+        <div class="chip-btn">
+          <img class="chip-icon" src="./images/money-6.png" alt="$100 icon" />
+          $100
+        </div>
+        <div class="deal-btn unbind-click">
+          <img class="deal-icon" src="./images/deal.png" alt="deal icon" />
+          Deal
+        </div>
+      </div>
+
+      <div class="player-moves-btns player-moves-btns--hidden">
+        <div class="stand-btn move-btn">
+          <i class="fa-solid fa-hand"></i>
+          Stand
+        </div>
+        <div class="hit-btn move-btn">
+          <i class="fa-solid fa-share"></i>
+          Hit
+        </div>
+        <div class="double-down-btn move-btn">
+          <i class="fa-solid fa-coins"></i>
+          Double
+        </div>
+      </div>
+    </main>
+    <div class="modal modal--hide">
+      <p class="modal__bet-result">You win $150</p>
+      <p class="modal__cash">You currently have $15000</p>
+      <div class="modal__play-again-btn">Play again?</div>
+    </div>
+
+    <div class="mobile-message">
+      <h2>Please use application on larger screen</h2>
+    </div>
+
+    <script src="./js/Game.js" type="module"></script>
+  </body>
+</html>

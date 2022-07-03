@@ -1,0 +1,273 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  background-image: url("../images/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: rgb(255, 255, 255);
+}
+
+main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 120rem;
+}
+
+.fa-solid {
+  margin-bottom: 0.5rem;
+}
+
+.unbind-click {
+  pointer-events: none;
+  cursor: default;
+  filter: brightness(0.6);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+
+  &__img {
+    height: 15rem;
+  }
+}
+
+.table {
+  display: flex;
+  margin-top: 2rem;
+  padding: 0 3rem;
+  min-height: 50rem;
+
+  .player {
+    position: relative;
+    width: 50%;
+
+    &__heading {
+      font-size: 3rem;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    &__cards {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+
+      &--right {
+        justify-content: flex-end;
+        margin-right: 1rem;
+      }
+    }
+
+    &__score {
+      margin-top: 1rem;
+      font-size: 2.4rem;
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-left: 5rem;
+    }
+
+    .back-of-card {
+      position: absolute;
+      top: 9.6rem;
+      right: 1rem;
+      display: none;
+      height: 18rem;
+      width: 13rem;
+      z-index: 2;
+
+      &--visible {
+        display: block;
+      }
+    }
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  height: 18rem;
+  width: 13rem;
+  font-size: 6rem;
+  background-color: rgb(255, 255, 255);
+  border: 0.1rem solid rgb(0, 0, 0);
+  border-radius: 0.5rem;
+  user-select: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: attr(data-card-value);
+    font-size: 2rem;
+  }
+
+  &::before {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  &::after {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    transform: rotate(180deg);
+  }
+}
+
+.hearts,
+.diamonds {
+  color: rgb(255, 0, 0);
+}
+
+.spades,
+.clubs {
+  color: #000;
+}
+
+.player-info {
+  display: flex;
+  justify-content: center;
+
+  &__cash {
+    margin-right: 5rem;
+  }
+
+  &__cash,
+  &__bet {
+    font-size: 3rem;
+  }
+}
+
+.chips,
+.player-moves-btns {
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.chips--hidden,
+.player-moves-btns--hidden {
+  display: none;
+}
+
+.chip-btn,
+.move-btn,
+.deal-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0 4rem 3rem;
+  width: 10rem;
+  height: 10rem;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s;
+}
+
+.chip-btn {
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.chip-icon,
+.deal-icon {
+  margin-bottom: 0.7rem;
+  height: 4rem;
+  width: 4rem;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-size: 2.6rem;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &__bet-result {
+    font-size: 3.8rem;
+  }
+
+  &__bet-result,
+  &__cash {
+    margin-top: 2rem;
+  }
+
+  &__play-again-btn {
+    margin-top: 4rem;
+    font-size: 3.2rem;
+    color: rgb(206, 34, 34);
+    cursor: pointer;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+
+    &:hover {
+      color: rgb(242, 23, 23);
+    }
+  }
+
+  &--hide {
+    display: none;
+  }
+}
+
+.mobile-message {
+  display: none;
+}
+
+.game-container {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .game-container {
+    display: none;
+  }
+
+  .mobile-message {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+  }
+}
